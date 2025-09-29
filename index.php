@@ -75,38 +75,8 @@ require_once "app/php/validation/form_validation.php";
     </div>
   </div>
 
-  <script>
-    // Mostrar/ocultar a password
-    const pwd = document.getElementById('password');
-    const btn = document.getElementById('togglePwd');
-    btn.addEventListener('click', () => {
-      if (pwd.type === 'password') {
-        pwd.type = 'text';
-        btn.textContent = '🙈';
-        // btn.innerHTML  = '<i class="fa fa-eye" aria-hidden="true"></i>';  
-
-
-      } else {
-        pwd.type = 'password';
-        btn.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
-      }
-    });
-
-    // Validação simples do email no cliente
-    document.querySelector('form').addEventListener('submit', (e) => {
-      const email = document.getElementById('email').value.trim();
-      if (!email || !email.includes('@')) {
-        e.preventDefault();
-        // alert('Por favor, introduza um e-mail válido.');
-        //   showError('email','Por favor, introduza um e-mail válido!');
-
-      }
-
-
-
-    });
-  </script>
-  <script type="module" src="assets/js/login.js"></script>
+  
+  <script type="text/javascript" src="assets/js/login.js"></script>
 </body>
 
 </html>
