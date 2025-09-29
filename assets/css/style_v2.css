@@ -1,0 +1,168 @@
+ /* Improved Flexbox Styles */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(187, 116, 116, 1) 0%, #c33 100%);
+    }
+    
+    .container {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    
+    .left {
+      flex: 1;
+      max-width: 450px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    /*.right {
+      flex: 1;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }*/
+    
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .brand {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .brand h1 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .brand .lead {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .error {
+      background: #fee;
+      color: #c33;
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #c33;
+      font-size: 0.9rem;
+    }
+    
+    form > div {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+      font-size: 0.9rem;
+    }
+    
+  
+    
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .small {
+      font-size: 0.85rem;
+    }
+    
+    .link {
+      color: #c33;
+      text-decoration: none;
+    }
+    
+    .link:hover {
+      text-decoration: underline;
+    }
+    
+    .btn {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(160, 94, 94, 1) 0%,  #c33 100%);
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .muted {
+      color: #666;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    
+    .promo {
+      text-align: center;
+    }
+    
+    .promo video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .left, .right {
+        max-width: 100%;
+        width: 100%;
+      }
+      
+      .card {
+        max-width: 100%;
+        padding: 2rem;
+      }
+      
+      .right {
+        order: -1;
+      }
+    
+    }
+    
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .brand h1 {
+        font-size: 1.5rem;
+      }
+    }
