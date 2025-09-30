@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($remember) {
       setcookie('remember_me', $email, time() + (86400 * 30), '/'); // 30 dias
     }
-    header('Location: /picagens/Dashboard/');
+    header('Location: /picagens/ui/');
     exit;
   } else {
     $error = 'Credenciais inválidas. (ex: user@example.com / secret123)';
