@@ -131,6 +131,21 @@
             <span class="text-sm font-medium text-slate-900">Gráficos</span>
           </button>
         </li>
+          <li>
+          <button onclick="runLogout()"
+             class="nav-item w-full text-left group flex items-center gap-3 rounded-md px-3 py-2 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+             aria-haspopup="true"
+             aria-expanded="false"
+             aria-controls="sidebarRight">
+            <span class="sidebar-icon-bg flex items-center justify-center w-8 h-8 rounded-md bg-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sidebar-icon text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M11 3v18m4-14v10m4-6v6m-12-2v2m-4-6v6" />
+              </svg>
+            </span>
+            <span class="text-sm font-medium text-slate-900">Logout</span>
+          </button>
+        </li>
       </ul>
     </nav>
 
