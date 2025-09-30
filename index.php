@@ -37,12 +37,12 @@ require_once "app/php/validation/form_validation.php";
         <form method="post" novalidate>
           <div>
             <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" placeholder="nome@exemplo.com" required value="<?= e($old['email']) ?>">
+          <input id="email" name="email" type="email" placeholder="nome@exemplo.com" required autocomplete="username" value>
           </div>
 
           <div style="position:relative;">
             <label for="password">Palavra-passe</label>
-            <input id="password" name="password" type="password" placeholder="A sua palavra-passe" required style="padding-right:40px;">
+            <input id="password" name="password" type="password" placeholder="A sua palavra-passe" required autocomplete="current-password" style="padding-right:40px;">
             <button type="button" class="show-password" id="togglePwd" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:16px; cursor:pointer; padding:5px;">👁️</button>
           </div>
 
@@ -52,7 +52,8 @@ require_once "app/php/validation/form_validation.php";
           </div>
 
           <div>
-            <button class="btn" type="submit">Entrar</button>
+            <!--<button class="btn" type="submit">Entrar</button>-->
+            <button class="btn" type="submit" id="loginBtn">Entrar</button>
           </div>
 
           <div class="muted small">Ainda não tem conta? <a class="link" href="#">Criar conta</a></div>
@@ -74,38 +75,8 @@ require_once "app/php/validation/form_validation.php";
     </div>
   </div>
 
-  <script>
-    // Mostrar/ocultar a password
-    const pwd = document.getElementById('password');
-    const btn = document.getElementById('togglePwd');
-    btn.addEventListener('click', () => {
-      if (pwd.type === 'password') {
-        pwd.type = 'text';
-           btn.textContent = '🙈';  
-          // btn.innerHTML  = '<i class="fa fa-eye" aria-hidden="true"></i>';  
-           
-
-      } else {
-        pwd.type = 'password';
-        btn.innerHTML  = '<i class="fa fa-eye" aria-hidden="true"></i>';  
-      }
-    });
-
-    // Validação simples do email no cliente
-    document.querySelector('form').addEventListener('submit', (e) => {
-      const email = document.getElementById('email').value.trim();
-      if (!email || !email.includes('@')) {
-        e.preventDefault();
-        // alert('Por favor, introduza um e-mail válido.');
-        //   showError('email','Por favor, introduza um e-mail válido!');
-
-      }
-
-
-
-    });
-  </script>
-  <script type="module" src="assets/js/login.js"></script>
+  
+  <script type="text/javascript" src="assets/js/login.js"></script>
 </body>
 
 </html>
