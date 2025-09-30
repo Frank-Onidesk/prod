@@ -101,6 +101,9 @@ require_once "app/php/validation/form_validation.php";
         //   showError('email','Por favor, introduza um e-mail válido!');
 
       }
+
+
+
     });
   </script>
   <script type="module" src="assets/js/login.js"></script>
