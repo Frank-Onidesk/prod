@@ -1,12 +1,10 @@
 <?php
 /**
  * Connection to remote server using SSH Authentification
- * @author  José Franco <jose.franco@autoreno.com>
- * @license Proprietary
- * @version 1.0
  */
 
 
+/*
 
 function connect($host, $u, $pwd, $db)
 {
@@ -66,3 +64,4 @@ if ($conn) {
    $usersEntity = 'User';  // entidade que contém os acessos
 }
 
+*/
