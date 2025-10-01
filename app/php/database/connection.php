@@ -1,13 +1,19 @@
 <?php
+
 /**
  * Connection to remote server using SSH Authentification
- * @author  José Franco <jose.franco@autoreno.com>
- * @license Proprietary
+<<<<<<< HEAD
  * @version 1.0
+=======
+>>>>>>> 47e3ffd379603ebfe9a6bc1cbcce18f25d5cb37e
  */
 
 
+/*
+<<<<<<< HEAD
+=======
 
+>>>>>>> ac5094b209868c9e38f812bbb611b1ea407a988f
 function connect($host, $u, $pwd, $db)
 {
     try {
@@ -64,5 +70,20 @@ $conn = remot_conn('204.173.254.5', 'administrator', 'ar2024crm', 'mcrm0006', 22
 if ($conn) { 
 
    $usersEntity = 'User';  // entidade que contém os acessos
-}
+}*/
 
+<<<<<<< HEAD
+
+
+
+=======
+<<<<<<< HEAD
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'a');
+=======
+*/
+>>>>>>> ac5094b209868c9e38f812bbb611b1ea407a988f
+>>>>>>> 47e3ffd379603ebfe9a6bc1cbcce18f25d5cb37e
