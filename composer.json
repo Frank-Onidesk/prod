@@ -1,11 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-<<<<<<< HEAD
             "App\\" : "pricagens/prod/"
-=======
-            "App\\" : "picagens/prod/"
->>>>>>> ac5094b209868c9e38f812bbb611b1ea407a988f
         }
     }
 }
