@@ -1,78 +1,24 @@
-<?php
-require_once "app/php/validation/form_validation.php";
-?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Entrar — Minha App</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="assets/css/style.css" rel="stylesheet" id='main-stylesheet'>
-  <link href="assets/css/style_v2.css" rel="stylesheet" id='main2-stylesheet'>
-  <link href="assets/css/form.css" rel="stylesheet" id='form-stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Reno Picagens</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-
+    .hero-image {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
   </style>
-
 </head>
+<body class="bg-gray-50">
 
-<body>
-  <div class="container">
-    <div class="left">
-      <div class="card">
-        <div class="brand">
-          <div>
-            <h1><i class="fas fa-sign-in-alt"></i> Login</h1>
-            <p class="lead">Aceda à nova incrível plataforma de dados</p>
-          </div>
-        </div>
-
-        <?php if ($error): ?>
-          <div class="error"><?= e($error) ?></div>
-        <?php endif; ?>
-
-        <form method="post" novalidate>
-          <div>
-            <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" placeholder="nome@exemplo.com" required autocomplete="username" value>
-          </div>
-
-          <div style="position:relative;">
-            <label for="password">Palavra-passe</label>
-            <input id="password" name="password" type="password" placeholder="A sua palavra-passe" required autocomplete="current-password" style="padding-right:40px;">
-            <button type="button" class="show-password" id="togglePwd" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; font-size:16px; cursor:pointer; padding:5px;">👁️</button>
-          </div>
-
-          <div class="row">
-            <label class="small"><input type="checkbox" name="remember" <?= $old['remember'] ? 'checked' : '' ?>> Lembrar-me</label>
-            <a class="link small" href="#">Esqueceu a palavra-passe?</a>
-          </div>
-
-          <div>
-            <!--<button class="btn" type="submit">Entrar</button>-->
-            <button class="btn" type="submit" id="loginBtn">Entrar</button>
-          </div>
-
-          <div class="muted small">Ainda não tem conta? <a class="link" href="#">Criar conta</a></div>
-        </form>
-
-        <div style="margin-top:1rem;font-size:0.8rem;color:#9ca3af;text-align:center">
-          Dica demo: user@example.com / secret123
-        </div>
-      </div>
-    </div>
-
-    <div class="right">
-      <div class="promo">
-        <video autoplay muted loop playsinline>
-          <source src="assets/videos/1.mp4" type="video/mp4">
-          O seu browser não suporta vídeo HTML5.
-        </video>
-      </div>
-    </div>
+  <!-- ===== Título ===== -->
+  <div class="container mx-auto px-4 py-8 text-center">
+    <h1 class="text-4xl font-bold text-gray-800">Auto Reno Picagens</h1>
+    <p class="text-xl text-gray-600 mt-2">Sistema de Gestão de Ordens de Reparação</p>
   </div>
 
   <script>
@@ -106,4 +52,47 @@ require_once "app/php/validation/form_validation.php";
   <script type="module" src="assets/js/login.js"></script>
 </body>
 
+  <!-- ===== How It Works Section ===== -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Como Funciona</h2>
+      
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center text-center mb-8 md:mb-0 md:w-1/3">
+          <div class="flex items-center justify-center w-20 h-20 bg-red-100 rounded-full mb-4">
+            <span class="text-red-600 font-bold text-xl">1</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Criar Ordem</h3>
+          <p class="text-gray-600 max-w-xs">
+            Registe uma nova ordem de reparação com os dados do cliente e veículo.
+          </p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center text-center mb-8 md:mb-0 md:w-1/3">
+          <div class="flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-4">
+            <span class="text-blue-600 font-bold text-xl">2</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Acompanhar Reparação</h3>
+          <p class="text-gray-600 max-w-xs">
+            Atualize o estado da reparação e adicione observações à medida que o trabalho avança.
+          </p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center text-center md:w-1/3">
+          <div class="flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+            <span class="text-green-600 font-bold text-xl">3</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Concluir e Faturar</h3>
+          <p class="text-gray-600 max-w-xs">
+            Finalize a reparação e gere automaticamente a fatura para o cliente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
 </html>
