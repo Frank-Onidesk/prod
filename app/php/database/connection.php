@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Connection to remote server using SSH Authentification
  * @author  José Franco <jose.franco@autoreno.com>
@@ -7,7 +8,7 @@
  */
 
 
-
+/*
 function connect($host, $u, $pwd, $db)
 {
     try {
@@ -64,5 +65,10 @@ $conn = remot_conn('204.173.254.5', 'administrator', 'ar2024crm', 'mcrm0006', 22
 if ($conn) { 
 
    $usersEntity = 'User';  // entidade que contém os acessos
-}
+}*/
 
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'a');
