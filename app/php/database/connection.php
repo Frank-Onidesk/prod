@@ -64,10 +64,5 @@ $conn = remot_conn('204.173.254.5', 'administrator', 'ar2024crm', 'mcrm0006', 22
 if ($conn) { 
 
    $usersEntity = 'User';  // entidade que contém os acessos
-
-
-
-
-  
 }
 
