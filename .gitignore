@@ -1,3 +1,10 @@
-node_modules/
+#composer PHP
 vendor/
 /vendor/
+
+
+#For Node modules
+node_modules/
+
+
+composer.lock
