@@ -1,8 +1,6 @@
 <?php
 /**
  * Connection to remote server using SSH Authentification
- * @author  José Franco <jose.franco@autoreno.com>
- * @license Proprietary
  * @version 1.0
  */
 
@@ -60,14 +58,10 @@ function remot_conn($ip, $u, $pwd, $db, $port)
 
 $conn = remot_conn('204.173.254.5', 'administrator', 'ar2024crm', 'mcrm0006', 22);
 
-
-if ($conn) { 
-
-   $usersEntity = 'User';  // entidade que contém os acessos
-
-
-
-
-  
+if(!$conn){
+ die("No connection to database");
 }
+
+
+
 
