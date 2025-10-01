@@ -58,15 +58,10 @@ function remot_conn($ip, $u, $pwd, $db, $port)
 
 $conn = remot_conn('204.173.254.5', 'administrator', 'ar2024crm', 'mcrm0006', 22);
 
-<<<<<<< HEAD
-if(!$conn){
- die("No connection to database");
-=======
 
 if ($conn) { 
 
    $usersEntity = 'User';  // entidade que contém os acessos
->>>>>>> f838a089fb1d7d558dda6f4ce19d60fa94ec2903
 }
 
 
