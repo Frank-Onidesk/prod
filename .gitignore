@@ -1,4 +1,7 @@
+#composer PHP
 vendor/
 /vendor/
 
-/node_modules/
+
+#For Node modules
+node_modules/
