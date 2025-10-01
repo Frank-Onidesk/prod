@@ -1,36 +1,52 @@
 <?php
-$host = "localhost";
-$db   = "picagens";
-$user = "root";
-$pass = "";
+header('Content-Type: application/json');
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) { die("Erro: " . $conn->connect_error); }
+// Ligar à BD
+$mysqli = new mysqli("localhost", "root", "", "picagens");
 
-$tipo = $_GET['tipo'] ?? 'status';
+if ($mysqli->connect_errno) {
+    echo json_encode(["error" => "Erro na ligação à BD: " . $mysqli->connect_error]);
+    exit;
+}
+
+// Receber variáveis do AJAX
+$varX = $_POST['varX'] ?? 'function';
+$varY = $_POST['varY'] ?? 'COUNT(*)';
+
+// Mapear colunas permitidas
+$colunasPermitidas = ['function', 'id_oficina', 'status'];
+$metricasPermitidas = ['COUNT(*)', 'SUM(horas)', 'AVG(horas)'];
+
+// Validar variáveis
+if (!in_array($varX, $colunasPermitidas)) $varX = 'function';
+if (!in_array($varY, $metricasPermitidas)) $varY = 'COUNT(*)';
+
+// Escapar colunas permitidas (precaução extra)
+$varX = $mysqli->real_escape_string($varX);
+
+// Construir query dinâmica
+$sql = "SELECT `$varX` AS categoria, {$varY} AS valor
+        FROM funcionarios
+        GROUP BY `$varX`";
+
+$result = $mysqli->query($sql);
+
+if (!$result) {
+    echo json_encode(["error" => "Erro na query: " . $mysqli->error]);
+    exit;
+}
+
 $labels = [];
-$valores = [];
+$values = [];
 
-if ($tipo === 'status') {
-    $sql = "SELECT status, COUNT(*) as total FROM ors GROUP BY status";
-} elseif ($tipo === 'funcionario') {
-    $sql = "SELECT f.name, COUNT(o.id_picagens) as total
-            FROM funcionarios f
-            JOIN ors o ON f.id = o.id_funcionario
-            GROUP BY f.name";
-} elseif ($tipo === 'oficina') {
-    $sql = "SELECT g.location, COUNT(o.id_picagens) as total
-            FROM garages g
-            JOIN ors o ON g.id_garage = o.id_oficina
-            GROUP BY g.location";
-}
-
-$result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
-    $labels[] = $row[array_key_first($row)];
-    $valores[] = $row['total'];
+    $labels[] = $row['categoria'];
+    $values[] = $row['valor'];
 }
-$conn->close();
 
-echo json_encode(["labels" => $labels, "valores" => $valores]);
-?>
+echo json_encode([
+    "labels" => $labels,
+    "values" => $values
+]);
+
+$mysqli->close();

@@ -47,23 +47,28 @@
   <!-- Content area -->
   <div class="content" id="content"></div>
 
-  <!-- Popup -->
-  <div id="popup">
-    <h3>Escolher variáveis</h3>
-    <label>Variável X:
-      <select id="varX">
-        <option value="function">Função</option>
-        <option value="id_oficina">Oficina</option>
-      </select>
-    </label><br><br>
-    <label>Variável Y:
-      <select id="varY">
-        <option value="COUNT(*)">Contagem</option>
-      </select>
-    </label><br><br>
-    <button onclick="criarGrafico()">Criar</button>
-    <button onclick="fecharPopup()">Cancelar</button>
-  </div>
+<!-- Popup -->
+<div id="popup">
+  <h3>Escolher variáveis</h3>
+  <label>Variável X (categoria):</label><br>
+  <select id="varX">
+    <option value="function">Função</option>
+    <option value="id_oficina">Oficina</option>
+    <option value="status">Status</option>
+  </select>
+  <br><br>
+
+  <label>Variável Y (métrica):</label><br>
+  <select id="varY">
+    <option value="COUNT(*)">Contagem</option>
+    <option value="SUM(horas)">Soma de Horas</option>
+    <option value="AVG(horas)">Média de Horas</option>
+  </select>
+  <br><br>
+
+  <button onclick="criarGrafico()">Criar</button>
+  <button onclick="fecharPopup()">Cancelar</button>
+</div>
 
 <script>
 let tipoSelecionado = null;
@@ -78,32 +83,43 @@ function fecharPopup() {
 
 function criarGrafico() {
   fecharPopup();
-  const content = document.getElementById('content');
 
-  const box = document.createElement('div');
-  box.classList.add('chart-box');
-  const canvas = document.createElement('canvas');
-  box.appendChild(canvas);
-  content.appendChild(box);
+  let varX = document.getElementById("varX").value;
+  let varY = document.getElementById("varY").value;
 
-  new Chart(canvas, {
-    type: tipoSelecionado,
-    data: {
-      labels: ['Exemplo A','Exemplo B','Exemplo C'],
-      datasets: [{
-        label: 'Exemplo',
-        data: [12, 19, 7],
-        borderWidth: 1
-      }]
-    },
-    options: { responsive: true, maintainAspectRatio: false }
+  // AJAX para dados.php
+  fetch("dados.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `varX=${varX}&varY=${varY}`
+  })
+  .then(res => res.json())
+  .then(data => {
+    const content = document.getElementById('content');
+    const box = document.createElement('div');
+    box.classList.add('chart-box');
+    const canvas = document.createElement('canvas');
+    box.appendChild(canvas);
+    content.appendChild(box);
+
+    new Chart(canvas, {
+      type: tipoSelecionado,
+      data: {
+        labels: data.labels,
+        datasets: [{
+          label: `${varY} por ${varX}`,
+          data: data.values,
+          borderWidth: 1
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
   });
 }
 
-// Permitir arrastar os gráficos
-new Sortable(document.getElementById('content'), {
-  animation: 150
-});
+// Drag & drop
+new Sortable(document.getElementById('content'), { animation: 150 });
 </script>
+
 </body>
 </html>
