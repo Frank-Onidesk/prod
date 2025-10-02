@@ -5,52 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Reno Picagens</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .hero-image {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-gray-50">
+
+  <!-- ===== Ícone de Login ===== -->
+  <a href="login.php" class="login-btn fixed top-4 right-4">👤</a>
 
   <!-- ===== Título ===== -->
   <div class="container mx-auto px-4 py-8 text-center">
     <h1 class="text-4xl font-bold text-gray-800">Auto Reno Picagens</h1>
     <p class="text-xl text-gray-600 mt-2">Sistema de Gestão de Ordens de Reparação</p>
   </div>
-
-  <script>
-    // Mostrar/ocultar a password
-    const pwd = document.getElementById('password');
-    const btn = document.getElementById('togglePwd');
-    btn.addEventListener('click', () => {
-      if (pwd.type === 'password') {
-        pwd.type = 'text';
-        btn.textContent = '🙈';
-        // btn.innerHTML  = '<i class="fa fa-eye" aria-hidden="true"></i>';  
-
-
-      } else {
-        pwd.type = 'password';
-        btn.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
-      }
-    });
-
-    // Validação simples do email no cliente
-    document.querySelector('form').addEventListener('submit', (e) => {
-      const email = document.getElementById('email').value.trim();
-      if (!email || !email.includes('@')) {
-        e.preventDefault();
-        // alert('Por favor, introduza um e-mail válido.');
-        //   showError('email','Por favor, introduza um e-mail válido!');
-
-      }
-    });
-  </script>
-  <script type="module" src="assets/js/login.js"></script>
-</body>
 
   <!-- ===== How It Works Section ===== -->
   <section class="py-12 bg-white">
@@ -93,6 +59,5 @@
       </div>
     </div>
   </section>
-
 </body>
 </html>
