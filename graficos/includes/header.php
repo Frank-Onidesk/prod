@@ -14,4 +14,4 @@
 <!-- CSS personalizado -->
 <link rel="stylesheet" href="assets/dashboard.css">
 </head>
-<body class="flex h-screen bg-gray-50"></body>
+<body class="flex h-screen bg-gray-50">
