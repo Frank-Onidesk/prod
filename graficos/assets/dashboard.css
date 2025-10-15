@@ -1,0 +1,169 @@
+/* Estilos personalizados para o dashboard */
+
+/* Transições suaves */
+.sidebar-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ícones da sidebar */
+.sidebar-icon-bg {
+    transition: all 0.2s ease;
+}
+
+.sidebar-icon {
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover .sidebar-icon-bg {
+    background-color: #e2e8f0;
+}
+
+.nav-item:hover .sidebar-icon {
+    color: #475569;
+}
+
+.nav-item.active .sidebar-icon-bg {
+    background-color: #fee2e2;
+}
+
+.nav-item.active .sidebar-icon {
+    color: #dc2626;
+}
+
+/* Botões de ícone */
+.icon-btn {
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards de grid */
+.grid-card {
+    transition: all 0.3s ease;
+}
+
+.grid-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Handle de resize */
+.resize-handle {
+    position: fixed;
+    left: 256px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: transparent;
+    cursor: col-resize;
+    z-index: 30;
+    transition: background-color 0.2s;
+}
+
+.resize-handle:hover {
+    background-color: #cbd5e1;
+}
+
+/* Botões flutuantes mobile */
+.floating-btn {
+    position: fixed;
+    bottom: 2rem;
+    z-index: 40;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo da sidebar */
+.sidebar-logo {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .resize-handle {
+        display: none;
+    }
+    
+    .floating-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/* Estados de foco melhorados */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f4f6;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
